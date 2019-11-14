@@ -25,5 +25,12 @@ int main(){
     timeit(lambda_with_captures, "lambda_with_captures");
     assert(capture == 2);
 
+
+    auto time_it = [counting_to_one_million]
+    {
+        timeit([counting_to_one_million]{counting_to_one_million();}, "counting_to_one_million");
+    };
+    timeit(time_it, "timeit([counting_to_one_million]{counting_to_one_million();}, \"counting_to_one_million\")");
+
     return EXIT_SUCCESS;
 }
